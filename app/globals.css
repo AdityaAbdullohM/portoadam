@@ -18,6 +18,7 @@ html {
 
 body {
   min-height: 100vh;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at top, rgba(34, 211, 238, 0.15), transparent 18%),
     radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.14), transparent 20%),
@@ -244,6 +245,48 @@ body {
   margin: 0;
   color: #cbd5e1;
   line-height: 1.75;
+}
+
+@media (max-width: 639px) {
+  .experience-list {
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    padding-left: 1.25rem;
+  }
+
+  .experience-list::before {
+    left: 0.35rem;
+    top: 0.75rem;
+    bottom: 0.75rem;
+  }
+
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .experience-year {
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .experience-dot {
+    position: absolute;
+    top: 0.35rem;
+    left: -1.25rem;
+    width: 14px;
+    height: 14px;
+    box-shadow: 0 0 0 6px rgba(34, 211, 238, 0.12);
+  }
+
+  .experience-card {
+    border-radius: 18px;
+    padding: 1.1rem;
+  }
+
+  .experience-card h3 {
+    font-size: 1.15rem;
+  }
 }
 
 .btn-primary-soft,

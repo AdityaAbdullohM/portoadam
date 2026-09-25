@@ -157,7 +157,7 @@ export default function Home() {
 
       <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/75 backdrop-blur-xl">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
-          <a href="#home" className="text-xl font-black tracking-tight text-white">
+          <a href="#home" className="shrink-0 text-xl font-black tracking-tight text-white">
             RP<span className="text-cyan-400">.</span>
           </a>
 
@@ -168,22 +168,22 @@ export default function Home() {
             <a href="#contact" className="transition hover:text-white">Kontak</a>
           </div>
 
-          <a href="#contact" className="rounded-full border border-cyan-400/40 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-200 transition hover:bg-cyan-400 hover:text-slate-950">
+          <a href="#contact" className="shrink-0 rounded-full border border-cyan-400/40 bg-cyan-400/10 px-3 py-2 text-sm font-semibold text-cyan-200 transition hover:bg-cyan-400 hover:text-slate-950 sm:px-4">
             Hire Me
           </a>
         </nav>
       </header>
 
-      <section id="home" className="mx-auto max-w-6xl px-6 pb-24 pt-16 lg:px-8 lg:pt-24">
+      <section id="home" className="mx-auto max-w-6xl px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-16 lg:px-8 lg:pt-24">
         <div className="grid min-w-0 items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]">
-          <div className="reveal animate-fade-up">
+          <div className="reveal min-w-0 animate-fade-up">
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-cyan-300">
               Halo, saya
             </p>
-            <h1 className="max-w-xl text-5xl font-black tracking-[-0.08em] text-white sm:text-6xl lg:text-7xl">
+            <h1 className="max-w-full text-4xl font-black tracking-[-0.07em] text-white sm:max-w-xl sm:text-6xl lg:text-7xl">
               Aditya Abdulloh Masykur
             </h1>
-            <h2 className="mt-4 min-h-[3rem] text-2xl font-semibold text-slate-300 sm:text-3xl">
+            <h2 className="mt-4 min-h-[3rem] text-xl font-semibold leading-tight text-slate-300 sm:text-3xl">
               <span className="typewriter-text">{typedText}</span>
               <span className="typewriter-cursor" aria-hidden="true">|</span>
             </h2>
@@ -191,11 +191,11 @@ export default function Home() {
               Saya membantu brand dan bisnis menghadirkan pengalaman digital yang premium, cepat, dan siap tumbuh di masa depan.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#projects" className="btn-primary-soft rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 px-6 py-3 font-semibold text-slate-950 shadow-[0_0_30px_rgba(34,211,238,0.35)] transition hover:scale-[1.02]">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+              <a href="#projects" className="btn-primary-soft inline-flex justify-center rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 px-6 py-3 font-semibold text-slate-950 shadow-[0_0_30px_rgba(34,211,238,0.35)] transition hover:scale-[1.02]">
                 Lihat Proyek
               </a>
-              <a href="#contact" className="btn-secondary-soft rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white transition hover:border-cyan-400/50 hover:text-cyan-200">
+              <a href="#contact" className="btn-secondary-soft inline-flex justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white transition hover:border-cyan-400/50 hover:text-cyan-200">
                 Hubungi Saya
               </a>
             </div>
@@ -210,7 +210,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-8">
+            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-5">
               {stats.map((item, index) => (
                 <div key={item.label} className="reveal stats-item" style={{ transitionDelay: `${index * 120}ms` }}>
                   <div className="text-3xl font-black text-white">{item.value}</div>
@@ -244,7 +244,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="mx-auto max-w-6xl px-6 py-24 lg:px-8">
+      <section id="about" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div className="reveal">
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-cyan-300">Tentang Saya</p>
@@ -264,8 +264,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="skills" className="border-y border-white/10 bg-white/3 py-24">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+      <section id="skills" className="border-y border-white/10 bg-white/3 py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="reveal mb-12">
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-cyan-300">Keahlian</p>
             <h2 className="text-4xl font-black tracking-[-0.06em] text-white md:text-5xl">
@@ -291,7 +291,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="mx-auto max-w-6xl px-6 py-24 lg:px-8">
+      <section id="projects" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="reveal mb-12">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-cyan-300">Proyek</p>
           <h2 className="text-4xl font-black tracking-[-0.06em] text-white md:text-5xl">
@@ -322,7 +322,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-24 lg:px-8">
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="reveal mb-12">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-cyan-300">Experience</p>
           <h2 className="text-4xl font-black tracking-[-0.06em] text-white md:text-5xl">
@@ -348,8 +348,8 @@ export default function Home() {
       
 
       <footer id="contact" className="border-t border-white/10 bg-slate-950/80">
-        <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
-          <div className="reveal rounded-[32px] border border-cyan-400/20 bg-gradient-to-r from-cyan-500/10 via-slate-900 to-violet-500/10 p-8 shadow-[0_25px_80px_rgba(14,165,233,0.15)] md:p-12">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+          <div className="reveal rounded-[32px] border border-cyan-400/20 bg-gradient-to-r from-cyan-500/10 via-slate-900 to-violet-500/10 p-6 shadow-[0_25px_80px_rgba(14,165,233,0.15)] sm:p-8 md:p-12">
             <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
               <div className="max-w-2xl">
                 <p className="mb-3 text-sm font-medium uppercase tracking-[0.28em] text-cyan-300">Kontak</p>
@@ -361,11 +361,11 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-4">
-                <a href="mailto:adityaabdullohmasykur@gmail.com" className="btn-primary-soft rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 px-6 py-3 font-semibold text-slate-950 shadow-[0_0_30px_rgba(34,211,238,0.35)]">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+                <a href="mailto:adityaabdullohmasykur@gmail.com" className="btn-primary-soft inline-flex justify-center rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 px-6 py-3 font-semibold text-slate-950 shadow-[0_0_30px_rgba(34,211,238,0.35)]">
                   Email Saya
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="btn-secondary-soft rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white">
+                <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="btn-secondary-soft inline-flex justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white">
                   LinkedIn
                 </a>
               </div>

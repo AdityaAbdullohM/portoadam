@@ -32,6 +32,7 @@ const projects = [
     type: "Full Stack",
     description: "LMS berbasis website untuk pembelajaran Java dengan model Problem Based Learning, kelas, materi, kuis, dan evaluasi.",
     url: "https://github.com/AdityaAbdullohM/resolva",
+    image: "/resolva.png",
     gradient: "linear-gradient(135deg, rgba(96,165,250,0.85), rgba(168,85,247,0.75))",
   },
   {
@@ -39,6 +40,7 @@ const projects = [
     type: "Web & Gamifikasi",
     description: "Platform e-learning interaktif dengan tantangan coding, XP, dan leaderboard untuk meningkatkan motivasi belajar.",
     url: "https://kodekita-kappa.vercel.app/",
+    image: "/kodekita.png",
     gradient: "linear-gradient(135deg, rgba(52,211,153,0.8), rgba(96,165,250,0.72))",
   },
   {
@@ -46,6 +48,7 @@ const projects = [
     type: "Next.js",
     description: "Platform penjadwalan akademik dengan PostgreSQL untuk mencegah benturan ruang dan waktu kelas.",
     url: "https://schedulia-three.vercel.app/",
+    image: "/schedulia.png",
     gradient: "linear-gradient(135deg, rgba(244,114,182,0.76), rgba(251,146,60,0.7))",
   },
   {
@@ -54,6 +57,7 @@ const projects = [
     description: "Aplikasi pengaduan masyarakat untuk memantau status laporan secara terpusat dan meningkatkan transparansi.",
     url: "https://ayolapor-kappa.vercel.app/",
     alternateUrl: "https://ayolapor-git-main-aditya-1594.vercel.app/",
+    image: "/ayolapor.png",
     gradient: "linear-gradient(135deg, rgba(34,211,238,0.78), rgba(59,130,246,0.72))",
   },
   {
@@ -61,6 +65,7 @@ const projects = [
     type: "E-commerce",
     description: "Platform penjualan kuliner dengan katalog menu interaktif dan sistem manajemen pesanan terpadu.",
     url: "https://github.com/AdityaAbdullohM/DapoerMommiEra",
+    image: "/dapoermommiera.png",
     gradient: "linear-gradient(135deg, rgba(251,146,60,0.78), rgba(244,63,94,0.68))",
   },
   {
@@ -68,6 +73,7 @@ const projects = [
     type: "UI/UX Design",
     description: "Desain aplikasi pemesanan tiket kereta dengan pencarian jadwal, pemilihan kursi, dan alur pembayaran intuitif.",
     url: "https://www.figma.com/design/NtLXatFYEJYsgf83HK6YPJ/Aplikasi-Pentika?node-id=287-1508&t=hJCdJGI3kfsOLNTK-0",
+    image: "/pentika.png",
     gradient: "linear-gradient(135deg, rgba(167,139,250,0.78), rgba(45,212,191,0.68))",
   },
 ];
@@ -338,7 +344,13 @@ AAM<span className="text-cyan-400">.</span>
               className="reveal project-card group overflow-hidden rounded-[30px] border border-white/10 bg-slate-900/70 shadow-[0_25px_80px_rgba(15,23,42,0.7)]"
               style={{ transitionDelay: `${index * 140}ms` }}
             >
-              <div className="project-visual h-56" style={{ background: project.gradient }} />
+              <div className="project-visual h-56" style={{ background: project.gradient }}>
+                <img
+                  src={project.image}
+                  alt={`Tampilan proyek ${project.title}`}
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
               <div className="p-6">
                 <span className="mb-4 inline-flex rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-200">
                   {project.type}

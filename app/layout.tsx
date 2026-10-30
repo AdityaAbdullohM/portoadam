@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Premium portfolio website for a modern digital creator and developer.",
+  title: "Aditya Abdulloh Masykur | Web & Data Science Portfolio",
+  description: "Portfolio Aditya Abdulloh Masykur, Web & Full Stack Developer serta Data Science practitioner.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

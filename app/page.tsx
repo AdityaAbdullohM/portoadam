@@ -2,94 +2,126 @@
 
 import { useEffect, useState } from "react";
 
+const profileImages = ["/profile.jpg", "/profile1.jpg", "/profile2.jpg"];
+
+const particles = Array.from({ length: 18 }, (_, index) => ({
+  id: index,
+  size: `${4 + (index % 5) * 2}px`,
+  left: `${(index * 37) % 100}%`,
+  top: `${8 + (index * 53) % 84}%`,
+  delay: `${(index % 7) * -1.2}s`,
+  duration: `${9 + (index % 5) * 2}s`,
+}));
+
 const stats = [
-  { value: "4+", label: "Tahun pengalaman" },
-  { value: "24+", label: "Proyek selesai" },
-  { value: "10k+", label: "Pengguna terlayani" },
+  { value: "3.85", label: "IPK / 4.00" },
+  { value: "6+", label: "Proyek teknologi" },
+  { value: "33", label: "Siswa yang dibimbing" },
 ];
 
 const skills = [
-  { title: "Front-End Development", text: "Membangun antarmuka modern dengan Next.js, React, dan teknologi web terkini." },
-  { title: "UI/UX Design", text: "Merancang pengalaman digital yang bersih, intuitif, dan fokus pada konversi." },
-  { title: "Brand Experience", text: "Membantu brand tampil lebih kuat melalui storytelling, visual, dan positioning." },
-  { title: "Performance Optimization", text: "Mengoptimalkan kecepatan, SEO, dan kualitas akses bagi pengguna di semua perangkat." },
+  { title: "Web Development", text: "Membangun aplikasi modern dengan Python, Java, React.js, Next.js, Node.js, Laravel, SQL, PostgreSQL, AWS, dan Git." },
+  { title: "UI/UX Design", text: "Merancang antarmuka dan alur pengguna yang intuitif menggunakan Figma dan pendekatan berpusat pada pengguna." },
+  { title: "Data Science", text: "Mengolah data, melakukan EDA, pembersihan data, serta membangun model Machine Learning dan Deep Learning." },
+  { title: "AI & NLP", text: "Mengembangkan solusi berbasis Natural Language Processing, termasuk analisis sentimen media sosial." },
 ];
 
 const projects = [
   {
-    title: "E-commerce Luxury",
-    type: "Marketplace",
-    description: "Platform belanja premium dengan fokus pada konversi, keamanan, dan pengalaman brand yang konsisten.",
+    title: "Resolva LMS",
+    type: "Full Stack",
+    description: "LMS berbasis website untuk pembelajaran Java dengan model Problem Based Learning, kelas, materi, kuis, dan evaluasi.",
+    url: "https://github.com/AdityaAbdullohM/resolva",
     gradient: "linear-gradient(135deg, rgba(96,165,250,0.85), rgba(168,85,247,0.75))",
   },
   {
-    title: "Startup Launchpad",
-    type: "Landing Page",
-    description: "Landing page untuk startup dengan funnel yang rapi, copywriting yang jelas, dan visual yang bersinar.",
+    title: "Kodekita",
+    type: "Web & Gamifikasi",
+    description: "Platform e-learning interaktif dengan tantangan coding, XP, dan leaderboard untuk meningkatkan motivasi belajar.",
+    url: "https://kodekita-kappa.vercel.app/",
     gradient: "linear-gradient(135deg, rgba(52,211,153,0.8), rgba(96,165,250,0.72))",
   },
   {
-    title: "Creator Portfolio",
-    type: "Personal Brand",
-    description: "Portofolio digital untuk kreator yang ingin menonjolkan karya, keahlian, dan prosesnya secara profesional.",
+    title: "Schedulia",
+    type: "Next.js",
+    description: "Platform penjadwalan akademik dengan PostgreSQL untuk mencegah benturan ruang dan waktu kelas.",
+    url: "https://schedulia-three.vercel.app/",
     gradient: "linear-gradient(135deg, rgba(244,114,182,0.76), rgba(251,146,60,0.7))",
+  },
+  {
+    title: "AyoLapor",
+    type: "Portal Web",
+    description: "Aplikasi pengaduan masyarakat untuk memantau status laporan secara terpusat dan meningkatkan transparansi.",
+    url: "https://ayolapor-kappa.vercel.app/",
+    alternateUrl: "https://ayolapor-git-main-aditya-1594.vercel.app/",
+    gradient: "linear-gradient(135deg, rgba(34,211,238,0.78), rgba(59,130,246,0.72))",
+  },
+  {
+    title: "DapoerMommiEra",
+    type: "E-commerce",
+    description: "Platform penjualan kuliner dengan katalog menu interaktif dan sistem manajemen pesanan terpadu.",
+    url: "https://github.com/AdityaAbdullohM/DapoerMommiEra",
+    gradient: "linear-gradient(135deg, rgba(251,146,60,0.78), rgba(244,63,94,0.68))",
+  },
+  {
+    title: "Pentika",
+    type: "UI/UX Design",
+    description: "Desain aplikasi pemesanan tiket kereta dengan pencarian jadwal, pemilihan kursi, dan alur pembayaran intuitif.",
+    url: "https://www.figma.com/design/NtLXatFYEJYsgf83HK6YPJ/Aplikasi-Pentika?node-id=287-1508&t=hJCdJGI3kfsOLNTK-0",
+    gradient: "linear-gradient(135deg, rgba(167,139,250,0.78), rgba(45,212,191,0.68))",
   },
 ];
 
 const socials = [
   { name: "Email", href: "mailto:adityaabdullohmasykur@gmail.com" },
-  { name: "LinkedIn", href: "https://linkedin.com" },
-  { name: "GitHub", href: "https://github.com" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/adityaabdullohmasykur" },
+  { name: "GitHub", href: "https://github.com/AdityaAbdullohM" },
 ];
 
 const floatingTags = [
   "Next.js",
-  "React",
-  "Tailwind",
-  "UI/UX",
-  "Motion",
-  "SEO",
-  "Branding",
-  "Design System",
+  "React.js",
+  "Node.js",
+  "Laravel",
+  "Python",
+  "PostgreSQL",
+  "Machine Learning",
+  "Figma",
 ];
 
 const experiences = [
   {
-    year: "2024 — Sekarang",
-    role: "Senior Front-End Developer",
-    company: "Freelance / Remote",
-    description: "Mendesain dan membangun pengalaman digital untuk brand, startup, dan produk yang membutuhkan performa tinggi dan story yang kuat.",
+    year: "Aug 2022 — Jul 2026",
+    role: "S1 Pendidikan Teknologi Informasi",
+    company: "Universitas Negeri Surabaya",
+    description: "Lulus dengan IPK 3.85/4.00. Skripsi berjudul Pengembangan LMS Resolva berbasis website dengan model Problem Based Learning untuk pembelajaran Pemrograman Java.",
   },
   {
-    year: "2022 — 2024",
-    role: "UI/UX & Web Designer",
-    company: "Digital Studio",
-    description: "Bekerja pada landing page, brand system, dan desain antarmuka untuk kebutuhan marketing serta produk digital.",
+    year: "Feb 2026 — Jul 2026",
+    role: "Full Stack Developer — Skripsi",
+    company: "Universitas Negeri Surabaya",
+    description: "Mengembangkan LMS Resolva berbasis web dengan arsitektur terpusat untuk kelas, materi, penugasan, kuis, dan evaluasi mahasiswa.",
   },
   {
-    year: "2020 — 2022",
-    role: "Web Developer",
-    company: "Creative Agency",
-    description: "Mengembangkan website responsif, optimasi SEO, dan menjaga konsistensi visual serta kebutuhan pengguna.",
+    year: "Feb 2025 — Jun 2025",
+    role: "Guru PLP",
+    company: "SMKN 2 Buduran",
+    description: "Merancang modul ajar informatika, mengintegrasikan media digital, serta mengevaluasi dan menyusun laporan hasil belajar untuk 33 siswa.",
+  },
+  {
+    year: "Sep 2024 — Dec 2024",
+    role: "Peserta Studi Independen Data Science",
+    company: "PT Mitra Talenta Grup (Celerates)",
+    description: "Mendalami Data Science, SQL, statistik, Machine Learning, Deep Learning, NLP, dan mengembangkan proyek analisis sentimen media sosial.",
   },
 ];
 
-const particles = Array.from({ length: 18 }, (_, index) => ({
-  id: index,
-  size: 6 + ((index * 7) % 12),
-  left: `${(index * 13) % 100}%`,
-  top: `${(index * 17) % 100}%`,
-  delay: `${(index % 6) * 0.8}s`,
-  duration: `${6 + (index % 5)}s`,
-}));
-
-const profileImages = ["/profile.jpg", "/profile1.jpg", "/profile2.jpg"];
+const fullText = "Web & Full Stack Developer | Data Science & AI";
 
 export default function Home() {
   const [typedText, setTypedText] = useState("");
   const [profileImageIndex, setProfileImageIndex] = useState(0);
   const [failedProfileImages, setFailedProfileImages] = useState<number[]>([]);
-  const fullText = "Web Developer & Digital Experience Builder";
 
   useEffect(() => {
     const revealItems = document.querySelectorAll(".reveal");
@@ -158,7 +190,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/75 backdrop-blur-xl">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
           <a href="#home" className="shrink-0 text-xl font-black tracking-tight text-white">
-            RP<span className="text-cyan-400">.</span>
+AAM<span className="text-cyan-400">.</span>
           </a>
 
           <div className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
@@ -184,11 +216,11 @@ export default function Home() {
               Aditya Abdulloh Masykur
             </h1>
             <h2 className="mt-4 min-h-[3rem] text-xl font-semibold leading-tight text-slate-300 sm:text-3xl">
-              <span className="typewriter-text">{typedText}</span>
+              <span>{typedText}</span>
               <span className="typewriter-cursor" aria-hidden="true">|</span>
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-400">
-              Saya membantu brand dan bisnis menghadirkan pengalaman digital yang premium, cepat, dan siap tumbuh di masa depan.
+              Sarjana Pendidikan Teknologi Informasi yang berpengalaman merancang UI/UX, membangun sistem web komprehensif, serta melakukan analisis data dan pengembangan Machine Learning.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
@@ -249,16 +281,16 @@ export default function Home() {
           <div className="reveal">
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-cyan-300">Tentang Saya</p>
             <h2 className="text-4xl font-black tracking-[-0.06em] text-white md:text-5xl">
-              Membangun pengalaman digital yang berdampak.
+              Membangun solusi teknologi yang inovatif dan efisien.
             </h2>
           </div>
 
           <div className="reveal space-y-5 text-lg leading-8 text-slate-300">
             <p>
-              Saya adalah developer dan visual thinker yang menggabungkan pemikiran strategis, desain yang rapi, dan teknologi web modern untuk membangun produk digital yang tidak hanya tampak bagus, tetapi juga benar-benar berfungsi untuk audiens.
+              Saya adalah Sarjana Pendidikan Teknologi Informasi dengan keahlian Web Development dan Data Science. Saya terbiasa mengubah kebutuhan pengguna menjadi antarmuka yang jelas dan sistem yang terstruktur.
             </p>
             <p>
-              Dari riset ide hingga implementasi, saya membantu brand dan bisnis menjadikan digital presence mereka lebih kuat, lebih cepat, dan lebih mudah diingat oleh pengguna.
+              Pengalaman saya mencakup pengembangan LMS, platform e-learning, portal pengaduan, penjadwalan akademik, e-commerce kuliner, UI/UX, serta analisis sentimen dan model Machine Learning.
             </p>
           </div>
         </div>
@@ -313,9 +345,26 @@ export default function Home() {
                 </span>
                 <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-400">{project.description}</p>
-                <a href="#contact" className="mt-6 inline-flex font-semibold text-cyan-300 transition group-hover:text-cyan-200">
-                  Lihat detail →
-                </a>
+                <div className="mt-6 flex flex-wrap items-center gap-4">
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex font-semibold text-cyan-300 transition group-hover:text-cyan-200"
+                  >
+                    Lihat detail →
+                  </a>
+                  {project.alternateUrl && (
+                    <a
+                      href={project.alternateUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex text-sm font-semibold text-slate-400 transition hover:text-cyan-200"
+                    >
+                      Versi alternatif →
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           ))}
@@ -365,7 +414,7 @@ export default function Home() {
                 <a href="mailto:adityaabdullohmasykur@gmail.com" className="btn-primary-soft inline-flex justify-center rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 px-6 py-3 font-semibold text-slate-950 shadow-[0_0_30px_rgba(34,211,238,0.35)]">
                   Email Saya
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="btn-secondary-soft inline-flex justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white">
+                <a href="https://www.linkedin.com/in/adityaabdullohmasykur" target="_blank" rel="noreferrer" className="btn-secondary-soft inline-flex justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white">
                   LinkedIn
                 </a>
               </div>

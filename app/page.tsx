@@ -78,6 +78,73 @@ const projects = [
   },
 ];
 
+const certificates = [
+  {
+    title: "Studi Independen Data Science",
+    issuer: "PT Mitra Talenta Grup (Celerates)",
+    category: "Data Science",
+    date: "Sep - Dec 2024",
+    image: "/cert-msib-data-science.png",
+    file: "/certificates/MSIB Merge.pdf",
+  },
+  {
+    title: "Generative AI & LLM Lifecycle",
+    issuer: "Belajar AI",
+    category: "Artificial Intelligence",
+    date: "Sertifikat kelulusan",
+    image: "/cert-generative-ai-lifecycle.png",
+    file: "/certificates/generative-ai-llm-lifecycle-r.pdf",
+  },
+  {
+    title: "AWS Cloud Essentials",
+    issuer: "AWS Training and Certification",
+    category: "Cloud Computing",
+    date: "2024",
+    image: "/cert-aws-cloud-computing.png",
+    file: "/certificates/AWS Cloud Computing Certificate.pdf",
+  },
+  {
+    title: "UI/UX Design",
+    issuer: "dibimbing.id",
+    category: "UI/UX Design",
+    date: "DSF 28",
+    image: "/cert-dibimbing-uiux.png",
+    file: "/certificates/Dibimbing UI UX.pdf",
+  },
+  {
+    title: "Intro to Data Analytics",
+    issuer: "RevoU",
+    category: "Data Analytics",
+    date: "5 Jul 2024",
+    image: "/cert-data-analysis-revou.png",
+    file: "/certificates/Data analys Revou.pdf",
+  },
+  {
+    title: "React Dasar",
+    issuer: "Skilvul",
+    category: "Web Development",
+    date: "Sertifikat kelulusan",
+    image: "/cert-skilvul-react.png",
+    file: "/certificates/Skilvul-SkilBadge-React Dasar.pdf",
+  },
+  {
+    title: "Fundamental of Professional Programming",
+    issuer: "TrueCoding",
+    category: "Programming",
+    date: "Jun 2024",
+    image: "/cert-competition-tru-coding.png",
+    file: "/certificates/competion tru coding.pdf",
+  },
+  {
+    title: "Roadmap Junior to Senior Software Engineer",
+    issuer: "Kelascode",
+    category: "Software Engineering",
+    date: "Sertifikat kelulusan",
+    image: "/cert-junior-senior-roadmap.png",
+    file: "/certificates/unlocking-success-a-roadmap-from-junior-to-senior-software-engineer-certificate-for-aditya-abdulloh-masykur.pdf",
+  },
+];
+
 const socials = [
   { name: "Email", href: "mailto:adityaabdullohmasykur@gmail.com" },
   { name: "LinkedIn", href: "https://www.linkedin.com/in/adityaabdullohmasykur" },
@@ -203,6 +270,7 @@ AAM<span className="text-cyan-400">.</span>
             <a href="#about" className="transition hover:text-white">Tentang</a>
             <a href="#skills" className="transition hover:text-white">Keahlian</a>
             <a href="#projects" className="transition hover:text-white">Proyek</a>
+            <a href="#certificates" className="transition hover:text-white">Sertifikat</a>
             <a href="#contact" className="transition hover:text-white">Kontak</a>
           </div>
 
@@ -377,6 +445,54 @@ AAM<span className="text-cyan-400">.</span>
                     </a>
                   )}
                 </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="certificates" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+        <div className="reveal mb-12 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-cyan-300">Sertifikasi</p>
+            <h2 className="text-4xl font-black tracking-[-0.06em] text-white md:text-5xl">
+              Bukti kompetensi dan pembelajaran
+            </h2>
+          </div>
+          <span className="certificate-count">{certificates.length} Sertifikat</span>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {certificates.map((certificate, index) => (
+            <article
+              key={certificate.title}
+              className="reveal certificate-card group"
+              style={{ transitionDelay: `${index * 90}ms` }}
+            >
+              <a
+                href={certificate.file}
+                target="_blank"
+                rel="noreferrer"
+                className="certificate-preview block"
+                aria-label={`Buka sertifikat ${certificate.title}`}
+              >
+                <img
+                  src={certificate.image}
+                  alt={`Sertifikat ${certificate.title}`}
+                  className="h-full w-full object-cover"
+                />
+                <span className="certificate-overlay">
+                  <span>Lihat sertifikat</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+              </a>
+              <div className="p-5">
+                <div className="mb-3 flex items-center justify-between gap-3">
+                  <span className="certificate-category">{certificate.category}</span>
+                  <span className="text-xs text-slate-500">{certificate.date}</span>
+                </div>
+                <h3 className="text-base font-bold leading-6 text-white">{certificate.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-400">{certificate.issuer}</p>
               </div>
             </article>
           ))}

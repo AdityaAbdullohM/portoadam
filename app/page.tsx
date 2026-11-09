@@ -143,6 +143,14 @@ const certificates = [
     image: "/cert-junior-senior-roadmap.png",
     file: "/certificates/unlocking-success-a-roadmap-from-junior-to-senior-software-engineer-certificate-for-aditya-abdulloh-masykur.pdf",
   },
+  {
+    title: "GEMINI",
+    issuer: "GEMINI",
+    category: "Artificial Intelligence",
+    date: "Sertifikat",
+    image: "",
+    file: "/certificates/GEMINI.pdf",
+  },
 ];
 
 const socials = [
@@ -476,11 +484,20 @@ AAM<span className="text-cyan-400">.</span>
                 className="certificate-preview block"
                 aria-label={`Buka sertifikat ${certificate.title}`}
               >
-                <img
-                  src={certificate.image}
-                  alt={`Sertifikat ${certificate.title}`}
-                  className="h-full w-full object-cover"
-                />
+                {certificate.image ? (
+                  <img
+                    src={certificate.image}
+                    alt={`Sertifikat ${certificate.title}`}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <span
+                    aria-hidden="true"
+                    className="flex h-full items-center justify-center bg-gradient-to-br from-blue-500/25 via-cyan-400/10 to-violet-500/25 text-3xl font-black tracking-[0.25em] text-cyan-100"
+                  >
+                    GEMINI
+                  </span>
+                )}
                 <span className="certificate-overlay">
                   <span>Lihat sertifikat</span>
                   <span aria-hidden="true">↗</span>
